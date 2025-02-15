@@ -5,9 +5,12 @@ const QRCode = require("qrcode");
 const admin = require("firebase-admin");
 const { v4: uuidv4 } = require("uuid");
 const { uploadToGoogleDrive } = require("./googleDriveUploader");
+const path = require("path");
+
+const serviceAccount = require(path.join(__dirname, "firebaseServiceAccount.json"));
 
 admin.initializeApp({
-  credential: admin.credential.cert(require("./firebaseServiceAccount.json")),
+  credential: admin.credential.cert(serviceAccount),
 });
 
 const db = admin.firestore();
@@ -64,9 +67,11 @@ app.get("/users", async (req, res) => {
   try {
     const snapshot = await db.collection("shauryautsav_entries").get();
     const users = snapshot.docs.map(doc => doc.data());
-
+    console.log(users);
+    console.log('hit');
     res.json(users);
   } catch (error) {
+    // console.log(error);
     res.status(500).json({ success: false, message: error.message });
   }
 });
