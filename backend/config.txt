@@ -1,0 +1,9 @@
+const firebaseConfig = {
+  apiKey: "AIzaSyAmxKuF0pjtdy900w4AjF4rlQ9Ou9uIFhQ",
+  authDomain: "shauryautsav-4105b.firebaseapp.com",
+  projectId: "shauryautsav-4105b",
+  storageBucket: "shauryautsav-4105b.firebasestorage.app",
+  messagingSenderId: "1075122479208",
+  appId: "1:1075122479208:web:1d2da1adb6fa5ab9139bdd",
+  measurementId: "G-7WG32T23BG"
+};
